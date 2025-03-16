@@ -14,3 +14,20 @@ body{
     height: 150px;
     width: 100%;
 }
+iframe{
+    width: 600px;
+    height: 450px;
+}
+.location_container{
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 600px) {
+    iframe{
+        width: 300px;
+        height: 250px;
+    }
+}
+.location_p{
+    text-size-adjust: 20px;
+}
