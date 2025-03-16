@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(35, 81, 161);
+    color: white;
+}
+.card-img{
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+.event_grid{
+    color: rgb(35, 81, 161);
+}
+.grid-img{
+    height: 150px;
+    width: 100%;
+}
