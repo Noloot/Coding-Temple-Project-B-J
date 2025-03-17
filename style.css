@@ -28,6 +28,14 @@ iframe{
         height: 250px;
     }
 }
-.location_p{
-    text-size-adjust: 20px;
+.card-title{
+    font-size: 13px;
+    text-align: center;
+}
+.card-text{
+    text-align: center;
+}
+.card-coach{
+    font-size: 15px;
+    text-align: center;
 }
