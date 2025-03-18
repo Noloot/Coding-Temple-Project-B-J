@@ -1,6 +1,5 @@
 body{
     background-color: rgb(35, 81, 161);
-    color: white;
 }
 .card-img{
     object-fit: cover;
@@ -38,4 +37,18 @@ iframe{
 .card-coach{
     font-size: 15px;
     text-align: center;
+}
+.information{
+    color: white;
+}
+.location_main{
+    padding-top: 80px;
+    color: white;
+}
+.events-main{
+    padding-top: 80px;
+    color: white;
+}
+.img-class{
+    padding-top: 80px;
 }
