@@ -13,6 +13,14 @@ body{
     height: 150px;
     width: 100%;
 }
+.d-flex{
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.p-2.border{
+  flex: 1 1 300px;
+  max-width: 300px;
+}
 iframe{
     width: 600px;
     height: 450px;
@@ -51,6 +59,10 @@ iframe{
 }
 .img-class{
     padding-top: 80px;
+}
+.img-fluid{
+  max-height: 250px;
+  object-fit: contain;
 }
 .menu-footer{
     padding-top: 80px;
