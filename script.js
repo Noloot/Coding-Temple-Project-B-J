@@ -39,3 +39,28 @@ function showSlides() {
     slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 7000); // Change image every 2 seconds
 }
+
+document.addEventListerner("DOMContentLoader", function(){
+    // Select all quantity input fields
+    const quatityInputs = document.querySelectorAll(".quantity");
+    const totalPriceElement = document.getElementById("total-price");
+
+    // Function to update total price
+    function updateTotal() {
+        let total = 0;
+
+        quantityInputs.forEach(input => {
+            const price = parseFloat(input.previousElementSibling.querySelector(".price").dataset.price);
+            const quantity = parseInt(input.value) || 0;
+            total += price * quantity;
+        });
+
+        // Update total display
+        totalPriceElement.textContent = total.toFixed(2);
+    }
+    
+    // Attach event listener to all quantity inputs
+    quantityInputs.forEach(input => {
+        inputaddEvenListener("input", updateTotal);
+    });
+});

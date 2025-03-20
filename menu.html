@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -40,7 +41,8 @@
             alt="Avatar" class="fade-image">
           <div class="fade-middle">
             <div class="fade-text">Burger</div>
-            <div class="fade-text">$20</div>
+            <div class="fade-text">$<span class="price" data-item="20"></span>20</div>
+            <input type="number" class="quantity" min="0" value="0" data-item="Burger">
           </div>
         </div>
     
@@ -49,7 +51,8 @@
             alt="Avatar" class="fade-image">
           <div class="fade-middle">
             <div class="fade-text">Hot Dogs</div>
-            <div class="fade-text">$15</div>
+            <div class="fade-text">$<span class="price" data-price="15"></span>15</div>
+            <input type="number" class="quantity" min="0" value="0" data-item="Hot Dogs">
           </div>
         </div>
     
@@ -58,9 +61,16 @@
             alt="Avatar" class="fade-image">
           <div class="fade-middle">
             <div class="fade-text">Wings</div>
-            <div class="fade-text">$18</div>
+            <div class="fade-text">$<span class="price" data-price="18"></span>18</div>
+            <input type="number" class="quantity" min="0" value="0" data-item="Wings">
           </div>
         </div>
+      </div>
+
+      <!-- Display Total Price -->
+
+      <div class="total-container">
+        <h2>Total: $<span id="total-price">0</span></h2>
       </div>
 
     <!-- Footer Section -->
