@@ -1,48 +1,60 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 0; // Start at first slide
 
+window.onload = function () { 
+    showSlidesAuto(); // Start automatic slideshow after the page loads
+};
+
+// Function to move to the next/previous slide
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    showSlidesManual(slideIndex + n);
 }
 
+// Function to jump to a specific slide
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlidesManual(n);
 }
 
-function showSlides(n) {
-    let i;
+// Manual Slide Show (Triggered by user clicks)
+function showSlidesManual(n) {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
+
+    if (n > slides.length) { slideIndex = 1; }
+    else if (n < 1) { slideIndex = slides.length; }
+    else { slideIndex = n; }  // Set slideIndex correctly
+
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
+
+    for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
+
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
 
-slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let i;
+// Automatic Slide Show (Every 7 seconds)
+function showSlidesAuto() {
     let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
+    if (slides.length === 0) return; // Prevent error if no slides exist
+
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
     slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
+    if (slideIndex > slides.length) { slideIndex = 1; }
+
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 7000); // Change image every 2 seconds
+    setTimeout(showSlidesAuto, 7000); // Change image every 7 seconds
 }
 
-document.addEventListerner("DOMContentLoader", function(){
+
+document.addEventListener("DOMContentLoaded", function () {
     // Select all quantity input fields
-    const quatityInputs = document.querySelectorAll(".quantity");
+    const quantityInputs = document.querySelectorAll(".quantity");
     const totalPriceElement = document.getElementById("total-price");
 
     // Function to update total price
@@ -50,17 +62,22 @@ document.addEventListerner("DOMContentLoader", function(){
         let total = 0;
 
         quantityInputs.forEach(input => {
-            const price = parseFloat(input.previousElementSibling.querySelector(".price").dataset.price);
+
+            const priceElement = input.closest(".fade-middle").querySelector(".price");
+            const price = parseFloat(priceElement.dataset.price);
             const quantity = parseInt(input.value) || 0;
-            total += price * quantity;
+
+            if (!isNaN(price)){
+                total += price * quantity;
+            }
         });
 
         // Update total display
         totalPriceElement.textContent = total.toFixed(2);
     }
-    
+
     // Attach event listener to all quantity inputs
     quantityInputs.forEach(input => {
-        inputaddEvenListener("input", updateTotal);
+        input.addEventListener("input", updateTotal);
     });
 });
