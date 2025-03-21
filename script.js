@@ -48,7 +48,7 @@ function showSlidesAuto() {
     if (slideIndex > slides.length) { slideIndex = 1; }
 
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlidesAuto, 7000); // Change image every 7 seconds
+    setTimeout(showSlidesAuto, 2000); // Change image every 7 seconds
 }
 
 
@@ -81,3 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener("input", updateTotal);
     });
 });
+
+
+function myFunction(){
+    var x = document.getElementById("myEmail").pattern;
+    document.getElementById("demo").innerHTML = x;
+}

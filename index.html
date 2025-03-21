@@ -47,7 +47,7 @@
 
     <section class="container mt-5 pt-4">
         <h2 class="form-information text-center pb-3">Leave A Question</h2>
-        <form class="border p-4 shadow-sm bg-light">
+        <form class="border p-4 shadow-sm bg-light" action="home.html">
             <div class="row">
                 <div class="col-sm-6 mb-3">
                     <label for="name" class="form-label">First Name</label>
@@ -60,13 +60,17 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <input type="email" class="form-control" id="myEmail" name="email" pattern="[a-z0-9.%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter your email" required>
             </div>
             <label for="comment">Comments:</label>
             <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
             <br><br>
             <button type="submit" class="btn btn-success w-100">Submit</button>
         </form>
+
+        <!-- <button onclick="myFunction()">Try it</button>
+
+        <p id="demo"></p> -->
     </section>
 
     <!-- A little note -->
